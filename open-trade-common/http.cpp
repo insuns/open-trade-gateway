@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////
 ///@file http.cpp
 ///@brief	http 工具函数
-///@copyright	上海信易信息科技股份有限公司 版权所有 
+///@copyright	上海信易信息科技股份有限公司 版权所有
 /////////////////////////////////////////////////////////////////////////
 
 #include "http.h"
@@ -26,14 +26,14 @@ long HttpGet(const char* url, std::string* response)
 	if (!curl)
 	{
 		return -1;
-	}        
+	}
     curl_easy_setopt(curl, CURLOPT_URL, url);
     curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
     curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
     curl_easy_setopt(curl, CURLOPT_FAILONERROR, 1L);
     curl_easy_setopt(curl, CURLOPT_ACCEPT_ENCODING, "gzip");
-    curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 5);
-    curl_easy_setopt(curl, CURLOPT_TIMEOUT, 10);
+    curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 10);
+    curl_easy_setopt(curl, CURLOPT_TIMEOUT, 180);
     curl_easy_setopt(curl, CURLOPT_LOW_SPEED_LIMIT, 1000);
     curl_easy_setopt(curl, CURLOPT_LOW_SPEED_TIME, 10);
     curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
